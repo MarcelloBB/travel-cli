@@ -17,7 +17,6 @@ func Get(url string, verbose bool, headers string) (string, error) {
 		if verbose {
 			fmt.Println("--- Headers ---")
 		}
-
 		parsedHeaders := utils.ParseHeaders(headers)
 		for key, value := range parsedHeaders {
 			req.Header.Set(key, value)

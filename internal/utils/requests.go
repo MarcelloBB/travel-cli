@@ -7,7 +7,6 @@ import (
 func ParseHeaders(headers string) map[string]string {
 	parsed := make(map[string]string)
 
-	// Divide por ponto e vírgula
 	pairs := strings.Split(headers, ";")
 	for _, pair := range pairs {
 		pair = strings.TrimSpace(pair)
@@ -16,7 +15,7 @@ func ParseHeaders(headers string) map[string]string {
 		}
 		parts := strings.SplitN(pair, ":", 2)
 		if len(parts) != 2 {
-			continue // ignora headers malformados
+			continue
 		}
 		key := strings.TrimSpace(parts[0])
 		value := strings.TrimSpace(parts[1])
