@@ -4,10 +4,31 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"travel-cli/internal/utils"
 )
 
-func Get(url string, verbose bool) (string, error) {
-	resp, err := http.Get(url)
+func Get(url string, verbose bool, headers string) (string, error) {
+	req, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		return "", err
+	}
+
+	if headers != "" {
+		if verbose {
+			fmt.Println("--- Headers ---")
+		}
+
+		parsedHeaders := utils.ParseHeaders(headers)
+		for key, value := range parsedHeaders {
+			req.Header.Set(key, value)
+			if verbose {
+				fmt.Printf("* %s: %s\n", key, value)
+			}
+		}
+	}
+
+	client := &http.Client{}
+	resp, err := client.Do(req)
 	if err != nil {
 		return "", err
 	}
@@ -19,11 +40,8 @@ func Get(url string, verbose bool) (string, error) {
 	}
 
 	if verbose {
-		fmt.Println("Status:", resp.Status)
-		for k, v := range resp.Header {
-			fmt.Printf("%s: %s\n", k, v)
-		}
-		fmt.Println()
+		fmt.Println("\n--- Response ---")
+		fmt.Println("* Status code:", resp.Status)
 	}
 
 	return string(body), nil

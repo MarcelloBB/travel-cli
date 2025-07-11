@@ -22,4 +22,5 @@ func Execute() {
 
 func init() {
 	rootCmd.PersistentFlags().BoolP("verbose", "v", false, "Enable verbose output")
+	rootCmd.PersistentFlags().StringP("headers", "H", "", "Custom headers in the format 'Key: Value'")
 }

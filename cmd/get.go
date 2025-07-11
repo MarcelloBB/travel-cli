@@ -20,8 +20,11 @@ var getCmd = &cobra.Command{
 
 func runGetCommand(cmd *cobra.Command, args []string) {
 	url := args[0]
+
 	verbose, _ := cmd.Flags().GetBool("verbose")
-	res, err := httpclient.Get(url, verbose)
+	headers, _ := cmd.Flags().GetString("headers")
+
+	res, err := httpclient.Get(url, verbose, headers)
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
