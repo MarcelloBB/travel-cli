@@ -27,7 +27,7 @@ func ConnectDB() (*gorm.DB, error) {
 	fmt.Println("Connected to database.db")
 	fmt.Println("Running automigration...")
 
-	err = db.AutoMigrate(&model.Workspace{})
+	err = db.AutoMigrate(&model.Workspace{}, &model.Collection{}, &model.Request{})
 	if err != nil {
 		fmt.Println("Error running automigration:", err)
 		panic(err)
