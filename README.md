@@ -17,7 +17,7 @@ travel create -w my-workspace
 travel create -c my-collection
 travel list -w
 travel use -w my-workspace
-travel get https://jsonplaceholder.typicode.com/posts/1 -H "Accept: application/json" -o output.json
+travel get https://foo.bar.com -H "Accept: application/json" -o output.json
 ```
 
 ### Database schema (demo)
