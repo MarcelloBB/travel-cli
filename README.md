@@ -14,6 +14,7 @@ Structure your API test environment directly from the terminal.
 ```bash
 travel create -w my-workspace
 travel create -c my-collection
+travel list -w
 travel use -w my-workspace
 travel get https://jsonplaceholder.typicode.com/posts/1 -H "Accept: application/json"
 ```
