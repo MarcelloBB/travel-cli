@@ -1,6 +1,8 @@
 package utils
 
 import (
+	"bytes"
+	"encoding/json"
 	"strings"
 )
 
@@ -23,4 +25,13 @@ func ParseHeaders(headers string) map[string]string {
 	}
 
 	return parsed
+}
+
+func PrettyPrintJSON(raw string) (bytes.Buffer, error) {
+	var out bytes.Buffer
+	err := json.Indent(&out, []byte(raw), "", "  ")
+	if err != nil {
+		return bytes.Buffer{}, err
+	}
+	return out, nil
 }
