@@ -8,6 +8,7 @@ Structure your API test environment directly from the terminal.
 - Create and list workspaces and collections
 - Set the current active workspace
 - Send HTTP GET requests with custom headers and verbose output
+- Save the formatted reponse body in a JSON file (--output [file.json])
 - Clean and extensible CLI structure with [Cobra](https://github.com/spf13/cobra)
 
 ### Example usage
@@ -16,7 +17,7 @@ travel create -w my-workspace
 travel create -c my-collection
 travel list -w
 travel use -w my-workspace
-travel get https://jsonplaceholder.typicode.com/posts/1 -H "Accept: application/json"
+travel get https://jsonplaceholder.typicode.com/posts/1 -H "Accept: application/json" -o output.json
 ```
 
 ### Database schema (demo)
