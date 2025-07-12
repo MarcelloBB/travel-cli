@@ -8,7 +8,7 @@ import (
 )
 
 func init() {
-	rootCmd.AddCommand(getCmd)
+	RootCmd.AddCommand(getCmd)
 }
 
 var getCmd = &cobra.Command{

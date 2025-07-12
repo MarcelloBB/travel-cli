@@ -13,3 +13,11 @@ func CreateCollection(name string, idWorkspace uint) (*model.Collection, error) 
 
 	return collection, nil
 }
+
+func ListCollections() ([]model.Collection, error) {
+	var collections []model.Collection
+	if err := db.DB.Find(&collections).Error; err != nil {
+		return nil, err
+	}
+	return collections, nil
+}
