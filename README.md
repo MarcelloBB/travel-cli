@@ -1,8 +1,8 @@
 ## Travel CLI
 
-**Travel CLI** is a lightweight command-line interface built in Go that helps you manage workspaces and collections, and perform customizable HTTP GET requests with ease.
+Lightweight command-line interface built in Go that helps you manage workspaces and collections, and perform customizable HTTP GET requests with ease.
 
-It’s designed for developers who want to structure their API test environments and workflows directly from the terminal.
+Structure your API test environment directly from the terminal.
 
 ### Features
 - Create and list workspaces and collections
