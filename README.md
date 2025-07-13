@@ -18,7 +18,7 @@ travel create -c my-collection
 travel list -w
 travel use -w my-workspace
 travel get https://foo.bar.com -H "Accept: application/json" -o output.json
-travel get https://... -c my_collection -t my_request
+travel get https://... -s my_collection -t my_request
 travel req -c my_collection -r my_request
 ```
 
