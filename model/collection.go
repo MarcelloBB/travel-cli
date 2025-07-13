@@ -1,7 +1,8 @@
 package model
 
 type Collection struct {
-	IdCollection uint   `gorm:"primaryKey" json:"id_collection"`
-	IdWorkspace  uint   `json:"id_workspace"`
-	Title        string `json:"title"`
+	IdCollection uint      `gorm:"primaryKey" json:"id_collection"`
+	IdWorkspace  uint      `json:"id_workspace"`
+	Title        string    `json:"title"`
+	Requests     []Request `gorm:"foreignKey:IdCollection" json:"requests"`
 }

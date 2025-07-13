@@ -59,6 +59,9 @@ func runListCommand(cmd *cobra.Command, args []string) {
 		}
 		for _, collection := range collections {
 			fmt.Printf("* %s\n", collection.Title)
+			for _, request := range collection.Requests {
+				fmt.Printf("  - %s  %s\n", request.Method, request.Title)
+			}
 		}
 		return
 	}

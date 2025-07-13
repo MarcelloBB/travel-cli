@@ -46,8 +46,7 @@ func runCreateCommand(cmd *cobra.Command, args []string) {
 	}
 
 	if collectionName != "" {
-		collection, err := repository.CreateCollection(collectionName, 1) // USE CURRENT WORKSPACE ID
-		// create table named execution and a column named id_workspace that stores the selected workspace id
+		collection, err := repository.CreateCollection(collectionName)
 		if err != nil {
 			fmt.Println("Error creating collection:", err)
 			os.Exit(1)
