@@ -48,3 +48,14 @@ func SetCurrentWorkspace(workspaceName string) error {
 
 	return nil
 }
+
+func GetCurrentWorkspace() (model.Workspace, error) {
+	var workspace model.Workspace
+	if err := db.DB.Where("current = ?", 1).First(&workspace).Error; err != nil {
+		if err == gorm.ErrRecordNotFound {
+			return workspace, fmt.Errorf("no current workspace set. Please create a workspace or set an existing one")
+		}
+		return workspace, err
+	}
+	return workspace, nil
+}
